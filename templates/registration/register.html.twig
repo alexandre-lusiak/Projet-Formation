@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block main %}
+                {################################}
+                {# Loop for the  Flash Message  #}
+                {################################}
+    {% for flashError in app.flashes('verify_email_error') %}
+    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    {% endfor %}
+                {################################}
+                {#  Form of user's registration #}
+                {################################}
+    <div class="form-container">
+        <div class="form register">
+            <h1>Inscrivez-vous</h1>
+            {{ form_start(registrationForm) }}
+            
+            <div>
+                {{ form_row(registrationForm.email,
+                    {'attr': {'placeholder': " Entrez Votre Email...",'class': "email-input"} })}}
+            </div>
+            
+            <div>
+                {{ form_row(registrationForm.plainPassword, 
+                   {'attr': {'placeholder': " Entrez Votre Mot De Passe....",'class': "password-input"} })}}
+            </div> 
+            
+                <a href="{{ url("rgpd") }}">Lisez Moi(rgpd)</a>
+            <div>
+                
+                {{ form_row(registrationForm.RGPD, 
+                    {'attr': {'placeholder': "régles rgpd",'class': "rgpd-input"} })}}
+            </div>  
+                <button type="submit" class="btn btn-info">valider Inscription</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div> 
+{% endblock main %}
+
+{% block footer%}
+{% endblock footer%}

@@ -1,0 +1,97 @@
+/****************************************/
+/*****Formulaire Regis-reset-login*******/
+/***************************************/
+
+.form-container {
+    height: 100%;
+    .form {
+
+        display: block;
+        text-align: center;
+        background-color: #ffffff;
+        margin: 2rem;
+        border-radius: 20%;
+        padding: 1rem;
+        -webkit-box-shadow: 1px 1px 15px 12px rgba(0, 0, 0, 0.65);
+        box-shadow: 1px 1px 15px 12px rgba(0, 0, 0, 0.65);
+        border: 5px solid black;
+
+        label {
+
+            padding: 1rem;
+            font-size: 1.5rem;
+        }
+        .email-input,
+        .password-input {
+            margin: 2rem;
+            padding: 0.5rem;
+            text-align: center;
+            width: 60%;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+        }
+
+        .password-input {
+
+            width: 55%;
+        }
+        .rgpd-input {
+
+            margin: 1rem;
+        }
+    }
+}
+
+
+/*******************************/
+/*****Formulaire comment*******/
+/******************************/
+.form-comment {
+    text-align: center;
+    margin: 1rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 1rem;
+
+    .h1 {
+        margin: 1rem;
+    }
+    p {
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+    .nickame-input,
+    .email-input,
+    .content-input,
+    .rgpd-input {
+        margin: 1rem;
+        border: none;
+        border-bottom: 1px solid #000000;
+    }
+    .content-input {
+        border: 1px solid #000000;
+        width: 60%;
+        height: 200px;
+    }
+}
+
+.form-resetpass {
+    text-align: center;
+    display: block;
+    margin: 8rem 1rem 8rem 1rem;
+    border: 5px solid black;
+    -webkit-box-shadow: 1px 1px 15px 12px rgba(0, 0, 0, 0.65);
+    box-shadow: 1px 1px 15px 12px rgba(0, 0, 0, 0.65);
+    border-radius: 15%;
+
+    h1 {
+        margin: 1rem;
+        font-weight: bold;
+    }
+    .input-reset {
+        margin: auto 3rem;
+        width: 80%;
+
+    }
+}

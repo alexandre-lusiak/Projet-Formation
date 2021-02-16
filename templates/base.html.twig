@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="Site Saint Leman blog ecommerce de vente de vetement et redaction d'article">
+        <meta name="keywords" content="Saint Leman, blog, ecommerce, mode,beauty"/>
+        <meta name="author" content="Alexandre Lusiak" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            
+            <link rel="stylesheet" href="{{asset("css/normalize.css")}}">
+            <link rel="stylesheet" href="{{asset("css/style.css")}}">
+            <link rel="stylesheet" href="{{asset("css/bootstrap.min.css")}}">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap" >
+            <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" >
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@1,300&display=swap" >
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" >
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&display=swap" >
+            <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega&display=swap" rel="stylesheet">
+            <link rel="icon" type="image/png" href="{{asset("img/site/icone-SL.png")}}">
+        
+        {% endblock %}
+    </head>
+    <body>
+    {% block body %}
+    {% block header%}
+    {########################################}
+    {#   Header of the website Saint Leman  #} 
+    {########################################}
+    <header class="header">
+        
+        <div class="title">
+            <img class="logo" src="{{asset("img/site/logoSl.png")}}" alt="logoHeader">
+            <h1>SAINT LEMAN</h1>
+            <img class="logo" src="{{asset("img/site/logoSL-reverse.png")}}" alt="logoHeader">
+        </div>
+      
+    </header>
+    {% endblock header%}
+    {% block nav %}
+    {###############################################}
+    {# navigationBar of the website Saint Leman  #} 
+    {###############################################}
+    <nav class="navigation">
+        
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <ul>
+            <li><a href="{{ url("index") }}" class="active">HOME</a></li>
+            <li><a href="{{ url("product") }}">ACHAT</a></li>
+            <li><a href="{{ url("article") }}">NEWS</a></li>
+    {#########################################################################}
+    {#   logic to see if user is connected or note and the right of a user   #} 
+    {#########################################################################}     
+          {% if app.user %}
+            
+            <li><a href="{{ url('app_logout') }}">DECONNECTION</a></li>
+            <li><a href="{{ url("basket") }}" class="fal fa-basketball-hoop"></a></li>
+          
+          {% if is_granted('ROLE_ADMIN') %}
+            
+            <li><a href="{{ url("admin") }}">ADMIN</a></li>
+          
+          {% endif %}
+          
+          {% elseif not app.user %}
+          
+            <li><a href="{{ url("register") }}">INSCRIPTION</a></li>
+            <li><a href="{{ url("login") }}">CONNEXION</a></li>
+           
+          {% endif %}
+        </ul>
+    </nav>
+    {% endblock nav %}
+    
+    {% block main%}
+    {% endblock main%}
+    
+    {%block footer%}
+    {###############################################}
+    {#      Footer of the website Saint Leman      #} 
+    {###############################################}
+    <footer class="footer">
+        
+        <div class="aside-flex">
+            
+            <aside class="law">
+                <h4>Information Générale:</h4>
+                    <a href="{{ url("rgpd") }}">RGPD</a>
+                    <a href="{{ url("comment") }}" >me contacter</a>
+            </aside>
+            
+            <aside class="location">
+                <h4>Ou Me Trouver : </h4>
+                    <p>Atelier: avenue de la sorcellerie,59000,LilleCity</p>
+                    <p>Telephone: 03/27/54/56/85</p>
+                    <p>Mail: LolitaPataki@gmail.com</p>
+            </aside>
+            
+            <aside class="social">
+                <h4>Suivez Moi :</h4>
+                    <a href="https://www.facebook.com/lauralemandesombre" class="fab fa-facebook-f"></a>
+                    <a href="https://www.instagram.com/lolitapataki/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.pinterest.fr/alexandrelusiak/_saved/" class="fab fa-pinterest-p"></a>
+            </aside>
+            
+        </div>
+        
+    </footer>
+    {% endblock footer%}
+    {% endblock body %}
+    {% block javascripts %}
+    {% endblock %}
+    </body>
+    
+</html>

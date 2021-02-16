@@ -1,0 +1,13 @@
+{%extends "base.html.twig"%}
+    
+{%block title%} Page Non Trouvé{% endblock %}
+
+{%block body%}
+
+    <div class="error"> 
+        <h1>C'est balot...ERREUR404 :/</h1>
+            <p> la page que vous avez cherché n'as pas été trouvé </p>
+            <a href="{{ url("index") }}">redirection vers la homepage du site Saint LEMAN</a>
+    </div>   
+    
+{% endblock %}

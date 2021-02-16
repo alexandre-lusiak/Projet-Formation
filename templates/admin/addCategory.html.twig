@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SAINT-LEMAN ADMIN{% endblock %}
+
+{% block body %}
+            {##########################################}
+            {#  block body of the page for addcategory#}
+            {##########################################}
+    <header class="admin-header">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </header>
+    
+    <nav class="admin-nav">
+        <a href="{{ url("admin") }}" class="btn btn-info">Admin</a>
+        <a href="{{ url("index") }}" class="btn btn-info">Retour au site</a>
+    </nav>
+            {###################################################}
+            {# main of the page for addcategory width the Form #}
+            {###################################################}
+    <main class="admin-container">
+        <h1>Nouvelle Categorie</h1>
+        {{ form_start(formCategory) }}
+        <div class="form-category">
+            
+            <div>
+            {{ form_row(formCategory.title, {'attr':{'class': 'form-control small'} }) }}
+            </div>
+            
+            <div>
+            {{ form_row(formCategory.description, {'attr':{'class': 'form-control small'} })}}
+            </div>
+            {#################################}
+            {#  Loop for the  Flash Message   #}
+            {#################################}
+            {% for message in app.flashes('message') %}
+            <div class="alert alert-info">{{ message }}</div>
+            {% endfor %}
+            
+            <div>
+            {{ form_row(formCategory.Ajouter, {'attr':{'class': 'btn btn-info'} })}}
+            </div>
+        </div> 
+        {{form_end(formCategory)}}
+    </main>
+    
+    <footer class="admin-footer">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </footer>     
+{% endblock body %}

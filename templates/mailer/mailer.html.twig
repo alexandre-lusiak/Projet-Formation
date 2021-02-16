@@ -1,0 +1,9 @@
+{% block title %}hey l'admin tu as un nouveau commentaire{% endblock %}
+            {#########################################}
+            {#   mail template  of user's comment    #}
+            {##########################################}
+{% block body %}
+        <h2>commentaire recu:</h2>
+           <p>de:{{nickname}}</p>
+           <p>message:{{content}}</p>
+{% endblock %}

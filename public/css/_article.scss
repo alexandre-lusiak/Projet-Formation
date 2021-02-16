@@ -1,0 +1,100 @@
+///////////////////////////
+//   Page News/Article   //
+///////////////////////////
+.news-container {
+
+    section {
+        border-top: 1px solid #000000;
+        h1 {
+
+            text-align: center;
+            font-size: 4rem;
+            color: $colorTitleNews;
+            font-family: $FontTitle;
+            padding: 1rem;
+            font-weight: bolder;
+            margin: 3rem;
+        }
+        .news {
+
+            padding: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            border: 2px solid #ECD2B7;
+            -webkit-box-shadow: 1px -12px 16px 3px #ECD2B7;
+            box-shadow: 1px -12px 16px 3px #ECD2B7;
+
+            h2 {
+
+                font-family: 5rem;
+                font-size: 3rem;
+                text-align: center;
+                padding: 1rem;
+                margin: auto;
+                color: $colorSubtitleNews;
+                font-weight: bold;
+                &:before,
+                &:after {
+                    font-family: "Font Awesome 5 Free";
+                    font-size: 1.5rem;
+                    content: "\f56b";
+                    padding: 1rem;
+                }
+
+            }
+
+
+            img {
+
+                width: 100%;
+            }
+
+            p {
+                font-size: 1.6rem;
+                padding: 1.3rem;
+                font-weight: bold;
+            }
+
+            .date-pubished {
+
+                text-align: left;
+                font-size: 1.2rem;
+                font-style: italic;
+                margin-bottom: 1rem;
+                text-decoration: underline;
+            }
+
+            .news-content {
+
+                margin-top: 2rem;
+                font-family: $FontText;
+                line-height: 1.8;
+
+            }
+
+            .like {
+                text-align: rigth;
+                text-decoration: none;
+                color: #ECD2B7;
+                font-size: 2rem;
+
+            }
+            .category-news {
+
+                font-size: 2rem;
+
+                &:before,
+                &:after {
+                    font-family: "Font Awesome 5 Free";
+                    padding: 0 0.5rem 0 0.5rem;
+                    font-size: 2rem;
+                    content: "\f005";
+                }
+
+            }
+            button {
+                font-size: 2rem;
+            }
+        }
+    }
+}

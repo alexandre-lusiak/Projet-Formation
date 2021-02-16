@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit SAINT LEMAN{% endblock %}
+            {###################################}
+            {#  block main of the prodcut page #}
+            {###################################}
+{% block main %}
+    <div class="product-container">
+        <h1>CREATIONS SAINT LEMAN</h1>
+        
+                {####################################}
+                {# Loop for the  Flash Message      #}
+                {# to add the product to the basket #}
+                {####################################}
+        {% for message in app.flashes('message') %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+
+        <div class="flex-product">
+            {#################################}
+            {# loop retrieving each product  #}
+            {#################################}
+            {% for product in products %}
+            <article class="products">
+                <h2>{{product.getName()}}</h2>
+                    <img src="{{asset("img/img_upload/"~product.getPicture())}}" alt="picture of ">
+                <div>
+                    <p>{{product.getType()}}</p>
+                    <p>{{product.getDescription()}}</p>
+                    <p>{{product.getPrice()}} EURO</p>
+                </div>
+            {#####################################}
+            {# logical to see if user is logg in #}
+            {#    for see the right button      #}
+            {#####################################}    
+            {% if app.user %}
+                <a href="{{path('addBasket',{'id':product.getId()})}}" class="add-basket-js">Ajouter Au Panier</a>
+            {% elseif not app.user %}
+                <a href="{{ url("login") }}">Connectez vous</a>
+            {% endif %}
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+{%endblock main%}
+
+{% block javascripts %}
+{% endblock %}

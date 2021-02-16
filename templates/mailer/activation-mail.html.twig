@@ -1,0 +1,7 @@
+            {###################################################}
+            {#   mail template for the activation's account    #}
+            {###################################################}
+<h1> Activation de votre Compte</h1>
+    <p>Bonjour {{mail}}</p>
+    <p>vous avez crée un compte sur le site Saint Leman, veuillez cliqué sur ce lien pour activé votre compte</p>
+    <p><a href="{{absolute_url(path('countActivation', {'token':token}))}}"> cliqué ici pour activé votre Compte</a></p>

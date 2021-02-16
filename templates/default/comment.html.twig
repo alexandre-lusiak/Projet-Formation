@@ -1,0 +1,48 @@
+{%extends "base.html.twig"%}
+
+{% block title %}Commentez!{% endblock %}
+    {#############################################}
+    {#  main of the page comment width the Form  #}
+    {#############################################}
+{%block main%}
+    <div class="form-comment">
+        {###############################}
+        {# Loop for the  Flash Message #}
+        {###############################}
+        {% for message in app.flashes('message') %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {{ form_start(commentForm) }}
+        <h1>Votre avis </h1>
+            <p>Une question ? un doute ? Une envie de collaborer avec moi ? Laissez nous un message & nous y répondrons le plus vite possible !</p>
+        <div>
+            {{ form_row(commentForm.nickname, 
+            {'attr':{'placeholder': "Ton Nickname",'class': "nickame-input"} })}}
+        </div>
+        
+        <div>    
+            {{ form_row(commentForm.email, 
+            {'attr':{'placeholder': "Ton Email",'class': "email-input "} })}}
+        </div>
+        
+        <div>  
+            {{ form_row(commentForm.content, 
+            {'attr':{'placeholder': "Ton Avis...",'class': "content-input"} })}}
+        </div>
+        
+        <div>       
+            <a href="{{ url("rgpd") }}">lecture des régles de collecte des données personnelle(rgpd)</a>    
+        </div>
+        
+        <div>       
+            {{ form_row(commentForm.rgpd, 
+            {'attr':{'placeholder': "RGPD Rules",'class': "rgpd-input"} })}}
+        </div>
+        
+        <div>        
+            {{ form_row(commentForm.Envoyer, 
+            {'attr':{'placeholder': "Titre de l'article",'class': "btn btn-info"} })}}
+        </div>        
+    </div>    
+     {{form_end(commentForm)}}
+{% endblock main %}

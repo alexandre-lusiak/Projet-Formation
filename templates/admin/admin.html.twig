@@ -1,0 +1,122 @@
+{% extends "base.html.twig" %}
+{% block title %}SAINT-LEMAN ADMIN{% endblock %}
+{% block body %}
+            {##########################################}
+            {#     block body of the Admin page       #}
+            {##########################################}
+
+    <header class="admin-header">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </header>
+    
+            {####################################}
+            {#     navbar of the Admin page     #}
+            {####################################}
+            
+    <nav class="admin-nav">
+        <a href="{{ url("addProduct") }}" class="btn btn-info">Nouveau Produit</a>
+        <a href="{{ url("addArticle") }}" class="btn btn-info">Nouvel Article</a>
+        <a href="{{ url("addCategory") }}" class="btn btn-info">Nouvel Category</a>
+        <a href="{{ url("index") }}" class="btn btn-info">Retour au site</a>
+    </nav>
+            {####################################}
+            {#     main of the Admin page       #}
+            {####################################}
+            
+    <main class="admin-container">
+        
+            {#################################}
+            {# Loop for the  Flash Message   #}
+            {#################################}
+            
+        {% for message in app.flashes('message') %}
+        <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        <section>
+            <h1>Produit en ligne</h1>
+                <table class="table-product">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                            <th>Picture</th>
+                            <th>Prix/EURo</th>
+                            <th>Option</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+            {#################################}
+            {# loop retrieving each product  #}
+            {#################################} 
+            
+                    {% for product in products%}
+                        <tr>
+                            <td>{{product.getName()}}</td>
+                            <td>{{product.getType()}}</td>
+                            <td>{{product.getDescription()}}</td>
+                            <td><img class="img-product" src="{{asset("img/img_upload/"~product.getPicture())}}" alt="picture of product"></td>
+                            <td>{{product.getPrice()}}</td>
+                            <td>
+                            <a href="{{path( 'deleteProduct', {'id':product.getId()} )  }}" class="delete fas fa-trash-alt" ></a>
+                            <a href="{{path( 'editProduct', {'id':product.getId()} )  }}" class="edit fas fa-pencil-alt"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+    
+                    {% endfor %}
+                </table>
+        </section>
+        <section>
+            <h1>Article en ligne</h1>
+            
+            
+            <div class= "card-flex"> 
+            
+            {#################################}
+            {# loop retrieving each article  #}
+            {#################################}
+            
+            {% for article in articles%}
+                <div class="card-article">
+                    <h2> <strong>TITRE: </strong> {{article.getTitle()}}</h2>
+                        <img class="img-product" src="{{asset("img/img_upload/"~article.getPicture())}}" alt="picture of article">
+                        <p class="content"> <strong>CONTENU: </strong> {{article.getContent()}}</p>
+                        <p><strong>DATE PUBLIE: </strong> {{article.getCreatedAt()|date("d/m/y")}}</p>
+                        <p><strong>CATEGORIE: </strong>{{ article.getCategory().getTitle()}}</p>
+                        <a href="{{path( 'deleteArticle', {'idArticle':article.getId() } )  }}" class="delete fas fa-trash-alt" ></a>
+                        <a href="{{path( 'editArticle', {'idArticle':article.getId() } ) }} " class="edit fas fa-pencil-alt" ></a>
+                </div>
+            {% endfor %}
+            </div> 
+            <table class="table-category">
+                <thead>
+                    <tr>
+                        <th>Titre</th>
+                        <th>Description</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                {#################################}
+                {# loop retrieving each Category #}
+                {#################################}
+                {% for category in categories%}
+                <tbody>
+                    <tr>
+                        <td>{{category.title}}</td>
+                        <td>{{category.description}}</td>
+                        <td>
+                            <a href="{{path( 'editCategory', {'idCategory':category.getId()} )  }}" class="edit fas fa-pencil-alt"></a>
+                        </td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </section>
+        
+    </main>
+    <footer class="admin-footer">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </footer>
+{% endblock body %}

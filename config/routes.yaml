@@ -1,0 +1,119 @@
+#######################################################  
+#route pour le DefaultController(home , comment , rgpd)##
+#######################################################
+
+index:
+    path: /
+    controller: App\Controller\DefaultController::index
+    
+comment:
+    path: /comment
+    controller: App\Controller\DefaultController::comment 
+
+rgpd:
+    path: /rgpd
+    controller: App\Controller\DefaultController::rgpd 
+
+#######################################################  
+#route pour la connection de l'utilisateur controller##
+#######################################################
+
+login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+    
+forgottenPassword:
+    path: /forgottenPassword
+    controller: App\Controller\SecurityController::passwordForgotten
+    
+resetPassword:
+    path: /resetPassword/{reset_token}
+    controller: App\Controller\SecurityController::resetPassword
+###################################################  
+#route pour s'enregister  entant que l'utilisateur##
+####################################################
+
+register:
+    path: /register
+    controller: App\Controller\RegistrationController::register
+
+countActivation:
+    path: /countActivation/{token}
+    controller: App\Controller\RegistrationController::countActivation
+    
+################################    
+#routes pour product controller##
+################################
+product:
+    path: /product
+    controller: App\Controller\ProductController::product
+    
+    
+addProduct:
+    path: /admin/addProduct
+    controller: App\Controller\ProductController::addProduct
+    
+editProduct: 
+    path: /admin/editProduct/{id}
+    controller: App\Controller\ProductController::editProduct
+    
+deleteProduct:
+    path: /admin/deleteProduct/{id}
+    controller: App\Controller\ProductController::deleteProduct
+    
+
+basket: 
+    path: /basket
+    controller: App\Controller\ProductController::basket
+
+addBasket: 
+    path: /addBasket/{id}
+    controller: App\Controller\ProductController::addBasket
+    
+removeProduct:
+    path: /removeProduct/{id}
+    controller: App\Controller\ProductController::removeProduct
+    
+    
+addCategory:
+    path: /admin/addCategory
+    controller: App\Controller\ArticleController::addCategory
+
+################################    
+#routes pour article controller##
+################################
+
+article:
+    path: /article
+    controller: App\Controller\ArticleController::article
+    
+    
+addArticle:
+    path: /admin/addArticle
+    controller: App\Controller\ArticleController::addArticle
+    
+editArticle: 
+    path: /admin/editArticle/{idArticle}
+    controller: App\Controller\ArticleController::editArticle
+    
+deleteArticle:
+    path: /admin/deleteArticle/{idArticle}
+    controller: App\Controller\ArticleController::deleteArticle 
+    
+editCategory:
+    path: /admin/editCategory/{idCategory}
+    controller: App\Controller\ArticleController::editCategory
+
+
+articleLike:
+    path: /article/{id}/like
+    controller: App\Controller\ArticleController::like
+    
+################################    
+#routes pour admin controller##
+################################
+admin:
+    path: /admin
+    controller: App\Controller\AdminController::admin
+    
+    

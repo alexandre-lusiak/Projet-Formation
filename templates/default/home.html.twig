@@ -1,0 +1,131 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Welcome on SAINT LEMAN{% endblock %}
+
+
+{% block main %}
+<div class ="home-container">
+    {##################################}
+    {#   Section About Saint Leman    #} 
+    {##################################}
+    <section class="about">
+        <h1>About Saint Leman</h1>
+        
+        <article class="about-who">
+            <h2 class ="who">WHO ?</h2>
+            <div>
+                <img src="{{asset('img/site/moi800x600.jpg')}}" alt="creator's picture of Saint Leman">
+                <p>Je m'appelle <strong>Laura Leman</strong>(Dad) <strong>Desobmre</strong>(Mom), j'ai 28 ans, je suis cancer ascendant lion et je viens de valenciennes dans le nord de la France j'aime le Karaoke, la mythologie grecques et le tarot divinatoire. J'ai fait des études litérraires à l'université avant de passer mon diplôme de modélisme et design de mode à l'école ESMOD de Roubaix, prés de Lille, J'ai toujours été assomée par les belles choses. J'essaie constament de faire de ma vie, mes fêtes, mon environnement, et mes valeurs quelques choses de jolie, et j'aime que la mode nous permette de revêtir cette infinie beauté tous les jours de toutes nos vies, et dêtre qui l'on veut chaque matin</p>
+            </div>
+        </article>
+        
+        <article class="about-why">
+            <h2 class ="why">WHY ?</h2>
+                <p>La beatué c'est pas seulement à l'exterieur, pas uniquement de l'estéthique, ça passe aussi par l'interieur, par les valeurs et l'éthique. et c'est cet équilibre qui consitue le nouvel enjeux des passionés de vêtements aujourdh'hui. La mode c'est un rêve, une passion, mais qui coûte souvent cher à l'humanité et à l'environnement et comme rien ne se fait à contre coeur ni à contre rêve, de plus en plus de créateurs et de consommateurs travaillent ensemble pour produire et acheter une mode phénoménal & bienvellante à la fois. c'est à cette chapelle que j'ai envie de me rattacher. Faites à la main grâce à des textiles de secondes mains, Saint-Leman conçoit et crée des collections disponibles sur commandes, en fonctions d'un magazine de patrons, de matières et de broderies disponibles sur le sites.</p>
+        </article>
+        
+            <div>
+                <p class="word-text" id="word">CARE</p>
+            </div>
+            
+        <article class="discorver">
+            <h2>SAINT LEMAN WORLD'S</h2>
+                <div>
+                    <h3>Les News:</h3>
+                        <p> Saint-Leman c'est aussi une découverte, que vous pouvez découvrir dans la section news du site toutes les inspirations, ce qui me touche au coeur, vous pourrez voir chaque semaine de nouvelle news sur les themes de lifestyle,mode,design</p>
+                        <a href="{{ url("article") }}">Voir News</a>
+                        <hr>
+                    <h3>Les Produits:</h3>
+                        <p> Saint-Leman c'est aussi des créations personnelle  de style, que vous pouvez consulter dans la section achat du site , Vous allez pouvoir voir différente création et design différent.</p>
+                        <a href="{{ url("product") }}">Voir Produits</a>
+                    <hr>
+                    <h3>Tirage Divinatoire</h3>
+                        <p> vous trouvez en bas de cette page votre vie sous carte n'ayez crainte j'ai fait en sorte que le mauvais oeil ne soit en aucun cas sur vous</p>
+                        <a href="#tarot">Affronter Votre Destiné</a>
+                        <hr>
+                </div>
+        </article>
+    
+    </section>
+    {#####################################}
+    {#   Section Carousel Design Outfit  #} 
+    {#####################################}
+    <section>
+        <h1>Design creation</h1>
+            <div class="carousel">
+                <h2>Design d'Outfit</h2>
+                <div class="carousel_item carousel_item-visible">
+                    <img src="{{asset("img/img-carousel/143088282_201643808332636_8170852896777326477_n.jpg") }}" alt="clothing design image">
+                </div>
+                
+                <div class="carousel_item">
+                    <img src="{{asset("img/img-carousel/143419242_514500232862009_1071857236683843101_n.jpg") }}" alt="clothing design image">
+                </div>
+                
+                <div class="carousel_item">
+                    <img src="{{asset("img/img-carousel/143672469_124597259526904_6324457654186272300_n.jpg") }}" alt="clothing design image">
+                </div>
+                
+                <div class="carousel_item">
+                    <img src="{{asset("img/img-carousel/143708221_423798845512233_269858612711664446_n.jpg") }}" alt="clothing design image">
+                </div>
+                
+                <div class="carousel_item">
+                    <img src="{{asset("img/img-carousel/143792248_2004468136386867_2360886146157832049_n.jpg") }}" alt="clothing design image">
+                </div>
+                
+                <div class="carousel_actions">
+                    <button class="btn-prev" id="carousel_btn-prev">&lt;</button>
+                    <button class="btn-next" id="carousel_btn-next">&gt;</button>
+                </div>
+            </div>
+    </section>
+    
+    {#####################################}
+    {#     Section tarot card reading    #} 
+    {#####################################}
+    
+    <section id="tarot" class ="tarot">
+        <h1>Tirage de carte Divinatoire</h1>
+        
+            <div class ="aside-law">
+               <h2>The Rules of Tarot</h2>
+                <ol>
+                    <li>Réflechisser a une question a poser a l'univers et à vous meme (amour,travail, argent etc...)</li>
+                    <li>La 1er carte: représente votre passé</li>
+                    <li>La 2eme carte: représente votre présent</li>
+                    <li>La 3eme carte: représente votre future</li>
+                    <li>Carte a l'endroit: lire le positif. Carte a l'enver : lire le négatif</li>
+                </ol>
+            </div>
+            
+            <div class="cart-drawed">
+                <div>
+                    <img src="/project-final/saint-leman/public/img/img-tarot/tarot.png" id="firstdraw" alt="tarot card image">
+                    <p id="text_firstcard"></p>
+                </div>
+                <div>
+                    <img src="/project-final/saint-leman/public/img/img-tarot/tarot.png" id="seconddraw" alt="tarot card image">
+                    <p id="text_secondcard"></p>
+                </div>
+                <div>
+                    <img src="/project-final/saint-leman/public/img/img-tarot/tarot.png" id="thirddraw" alt="tarot card image">
+                    <p id="text_thirdcard"></p>
+                </div>
+            </div>
+            
+            <button class="btn-draw" id="draw">Tirez votre desitiné</button>
+            
+    </section>
+    
+</div>
+ {#########################################}
+ {# All script javascript use in home page#}
+ {#########################################}
+{% block javascripts %} 
+    <script src="{{asset("js/tarot.js")}}"></script>
+    <script src="{{asset("js/wordtime.js")}}"></script>
+    <script src="{{asset("js/carousel.js")}}"></script>
+{% endblock %}
+{% endblock main %}
+

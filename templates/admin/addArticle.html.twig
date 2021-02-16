@@ -1,0 +1,65 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SAINT-LEMAN ADmin{% endblock %}
+{% block body %}
+            {##########################################}
+            {#  block body of the page for addArticle #}
+            {##########################################}            
+    <header class="admin-header">
+        <h1>Nouvel Article</h1>
+    </header>
+    
+    <nav class="admin-nav">
+        <a href="{{ url("admin") }}" class="btn btn-info">Admin</a>
+        <a href="{{ url("index") }}" class="btn btn-info">Retour au site</a>
+    </nav>
+            {###################################################}
+            {#  main of the page for addArticle width the Form #}
+            {###################################################}
+    <main class="admin-container">
+        <h1>Formulaire De l'Article</h1>
+            {{ form_start(formArticle) }}
+            <div class="form-article">
+                <div>
+                     {{ form_row(formArticle.title, 
+                     {'attr':{'placeholder': "Titre de l'article",'class': "form-control small"} })}}
+                </div>
+                
+                <div>
+                    {{ form_row(formArticle.picture, 
+                    {'attr':{'placeholder': "Picture de l'article",'class': "form-control small"} })}}
+                </div>
+
+                <div>
+                {{ form_row(formArticle.category, 
+                {'attr':{'placeholder': "Category de l'article",'class': "form-control small"} })}}
+                </div>
+
+                <div>
+                    {{ form_row(formArticle.content, 
+                    {'attr':{'placeholder': "Contenu l'article",'class': "form-control content"} })}}
+                </div>
+                
+                {################################}
+                {# Loop for the  Flash Message  #}
+                {################################}
+                
+                {% for message in app.flashes('message') %}
+                <div class="alert alert-info">
+                    {{ message }}
+                </div>
+                {% endfor %}
+
+                <div>
+                    {{ form_row(formArticle.Valider, 
+                    {'attr':{'placeholder': "valider",'class': "btn btn-primary"} })}}
+                </div>
+            </div> 
+            {{form_end(formArticle)}}
+    </main>
+    
+    <footer class="admin-footer">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </footer>
+    
+{% endblock body %}

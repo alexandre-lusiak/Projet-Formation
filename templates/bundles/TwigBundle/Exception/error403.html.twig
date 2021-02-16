@@ -1,0 +1,13 @@
+{%extends "base.html.twig"%}
+    
+{%block title%}Accés Non Autorisé{% endblock %}
+
+{%block body%}
+
+    <div class="error"> 
+        <h1>OP OP OP la , vous avez du vous égarer : ERREUR403 => Accés Interdit</h1>
+            <p>Vous n'etes autorisé à entrer dans cette zone</p>
+            <a href="{{ url("index") }}">Suivez ce chemin pour repartir vers la home-page de notre site</a>
+    </div>   
+
+{% endblock %}

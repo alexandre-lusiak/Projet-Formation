@@ -1,0 +1,68 @@
+{% extends "base.html.twig" %}
+
+{% block title %}SAINT-LEMAN ADMIN{% endblock %}
+
+{% block body %}
+            {#################################################}
+            {#  block body of the page for the add of Procut #}
+            {#################################################}
+    <header class="admin-header">
+        <h1>Nouveau Produit</h1>
+    </header>
+    
+    <nav class="admin-nav">
+        <a href="{{ url("admin") }}" class="btn btn-info">Admin</a>
+        <a href="{{ url("index") }}" class="btn btn-info">Retour au site</a>
+    </nav>
+            {##########################################################}
+            {#  main of the page for the add of Procut width the form #}
+            {##########################################################}
+    <main class="admin-container">
+        <section>
+            {{ form_start(formProduct) }}
+            <div class="form-product">
+            <h1>Formulaire Du  Produit</h1>
+            
+                <div>
+                    {{ form_row(formProduct.name, 
+                    {'attr': {'placeholder': "Nom du produit",'class': "form-control small"} })}}
+                </div>
+                
+                <div>
+                    {{ form_row(formProduct.type, 
+                    {'attr':{'placeholder': "type de produit",'class': "form-control small"} })}}
+                </div>
+                
+                <div>
+                    {{ form_row(formProduct.picture, 
+                    {'attr':{'placeholder': "picture",'class': "form-control small"} })}}
+                </div>
+                
+                <div>
+                    {{ form_row(formProduct.price, 
+                    {'attr':{'placeholder': "prix du Produit",'class': "form-control small"} })}}
+                </div>
+            
+                <div>
+                {{ form_row(formProduct.description, 
+                {'attr':{'placeholder': "Description du produit",'class': "form-control content"} })}}
+                </div>
+                
+                {% for message in app.flashes('message') %}
+                <div class="alert alert-info">{{ message }}</div>
+                {% endfor %}
+    
+                <div>
+                    {{ form_row(formProduct.Valider, 
+                    {'attr':{'placeholder': "Valider",'class': "btn btn-info"} })}}
+                </div>
+    
+            </div> 
+            {{form_end(formProduct)}}
+        </section>
+    </main>
+    
+    <footer class="admin-footer">
+        <h1>SAINT LEMAN: ADMIN</h1>
+    </footer>  
+{% endblock body %}

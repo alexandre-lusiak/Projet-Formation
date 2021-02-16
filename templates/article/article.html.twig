@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saint News{% endblock %}
+
+{% block main %}
+                    
+            {#################################}
+            {#  block main of the news page  #}
+            {#################################}        
+                    
+    <div class="news-container">
+        <section>
+            <h1>Articles Saint-LEMAN</h1>
+            
+            {#################################}
+            {# loop retrieving each article  #}
+            {#################################}
+            
+            {% for article in articles %}
+            <article class="news">
+                <h2>{{article.getTitle()}}</h2>
+                <div class="display-flex">
+                    <img class="img-article" src="{{asset("img/img_upload/"~article.getPicture())}}" alt="picture of article/news">
+                    <p class="news-content">{{article.getContent()}}</p>
+                </div>    
+                <p class="category-news">{{ article.getCategory().getTitle()}}</p>
+                <p class="date-pubished"> Publié le : {{article.getCreatedAt()|date("d/m/y")}}</p>
+                <a href="{{ path('articleLike', {'id':article.id}) }}" class="js-like like">
+                    
+                {############################################}
+                {# logical to see if the user is logged in  #}
+                {# and if he already likes article or not   #}
+                {############################################}
+        
+                {% if app.user and article.likedByUser(app.user)%}
+                    <i class="fas fa-heart"></i>
+                {% else %}
+                     <i class="far fa-heart"></i>
+                {%endif%}
+                    <span class="likes-js">{{article.getLikes()|length}}</span>
+                </a>
+            </article>
+            {% endfor %}
+        </section>
+    </div>
+    
+{%endblock main%}
+ {##############################################}
+ {# All script javascript use in the news page #}
+ {##############################################}
+{% block javascripts %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{{asset("js/like.js")}}"></script>
+{% endblock %}

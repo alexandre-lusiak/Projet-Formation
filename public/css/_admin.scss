@@ -1,0 +1,210 @@
+.admin-header {
+
+    h1 {
+
+        background-color: #191970;
+        color: #ffffff;
+        text-align: center;
+        margin: auto;
+        width: 100%;
+
+    }
+}
+
+.admin-nav {
+
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+
+
+    a {
+
+        border: 1px solid #191970;
+        background-color: #191970;
+        margin: 0.5rem;
+        width: 50%;
+
+    }
+}
+
+.admin-container {
+
+    font-weight: bold;
+    text-align: center;
+    h1 {
+
+        padding: 1rem;
+        color: #191970;
+    }
+
+    section {
+
+        border-top: 1px solid #191970;
+        margin: 1rem;
+
+        h1 {
+
+            text-align: center;
+        }
+        .table-product,.table-category {
+
+            border-collapse: collapse;
+            padding: 0;
+            border: 6px solid #191970;
+            background-color: #fff;
+            margin: auto;
+            th {
+
+                border: 4px solid #191970;
+                font-size: 1, 5rem;
+                background-color: #191970;
+                color: #FFFFFF;
+            }
+
+            td {
+
+                border: 2px solid #191970;
+                padding: 0.3rem;
+                img {
+
+                    width: 60%;
+                }
+                .delete {
+
+                    color: #ffffff;
+                    background-color: #191970;
+                    border: 1px solid #000000;
+                    margin: 1rem;
+                    padding: 1rem;
+
+                    &:hover {
+
+                        text-decoration: none;
+                        background-color: #B20000;
+                        color: #FFFFFF;
+                    }
+                }
+                .edit {
+
+                    color: #ffffff;
+                    background-color: #191970;
+                    border: 1px solid #000000;
+                    margin: 1rem;
+                    padding: 1rem;
+
+                    &:hover {
+
+                        text-decoration: none;
+                        background-color: #008000;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+
+        .card-article {
+            text-align: center;
+            border: 6px solid #191970;
+            margin: 3rem;
+            padding: 2rem;
+            p {
+
+                margin: 2rem 0;
+            }
+            img {
+
+                width: 60%
+            }
+            .content {
+
+                margin: auto;
+                margin-top: 2rem;
+                max-width: 320px;
+                max-height: 150px;
+                overflow: auto;
+                line-height: 2;
+
+
+
+            }
+
+            .delete {
+
+                color: #ffffff;
+                background-color: #191970;
+                border: 1px solid #000000;
+                margin: 1rem;
+                padding: 1rem;
+
+                &:hover {
+
+                    text-decoration: none;
+                    background-color: #B20000;
+                    color: #FFFFFF;
+                }
+            }
+
+            .edit {
+                color: #ffffff;
+                background-color: #191970;
+                border: 1px solid #000000;
+                margin: 1rem;
+                padding: 1rem;
+
+                &:hover {
+
+                    text-decoration: none;
+                    background-color: #008000;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+    
+   
+
+    .form-product,
+    .form-article,
+    .form-category {
+
+        margin: 1rem;
+        border: 4px solid #191970;
+
+        .form-control {
+            border: 1px solid black;
+
+            text-align: center;
+            margin: auto;
+            margin-bottom: 1rem;
+        }
+        .small {
+
+            width: 30%;
+        }
+        .content {
+            height: 100%;
+            width: 70%;
+            padding: 10rem;
+        }
+
+        .btn {
+
+            margin: 0.5rem;
+            border: 1px solid #191970;
+            background-color: #191970;
+        }
+    }
+
+
+}
+
+.admin-footer {
+    h1 {
+        background-color: #191970;
+        color: #ffffff;
+        text-align: center;
+        margin: 0;
+        padding: 1rem;
+    }
+}

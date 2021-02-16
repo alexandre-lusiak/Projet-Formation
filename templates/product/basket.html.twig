@@ -1,0 +1,45 @@
+{% extends 'base.html.twig'%}
+{% block title %}Votre Panier{% endblock %}
+{%block main %}
+    <div class="basket-container">
+        
+        <h1>Votre panier</h1>
+    {# basket template with the items selected in the product page #}
+
+            {%if items| length > 0 %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>type</th>
+                        <th>description</th>
+                        <th>picture</th>
+                        <th>quantité</th>
+                        <th>price &#128; </th>
+                        <th>option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.product.name }}</td> 
+                        <td>{{ item.product.type }}</td> 
+                        <td>{{ item.product.description }}</td>
+                        <td><img src="{{asset("img/img_upload/"~item.product.picture)}}" alt="picture of clothes"></td>
+                        <td>{{ item.quantity}}</td>
+                        <td>{{ item.product.price}}</td>
+                        <td><a href="{{path('removeProduct',{'id':item.product.id})}}" class="delete-basket fas fa-trash-alt"></a></td>
+                    </tr>
+                    </tbody>
+                {% endfor %}
+            </table>
+            <div class="order">
+                <p>Total commande: {{ total }} &#128; </p> 
+                <button>Passer à la caisse</button>
+                <p><em><q>on ne pourra pas validé le panier car il est impossible de faire un systeme de paiement sur l'ide</q></em></p>
+            </div>
+            {% else %}
+            <p> votre panier est vide :/ . Repartez braquer la boutiqe <a href="{{ url("product") }}">ici même</a></p>
+        {% endif %}
+    </div>
+{% endblock main %} 
